@@ -1,12 +1,11 @@
-
 const requestURL = "https://www.googleapis.com/books/v1/volumes?q=harry+potter"
 
-const request = async() =>{
+const request = async () => {
     const response = await fetch(requestURL)
     try {
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error('Error fetching data')
-        }else{
+        } else {
             const convertireJSON = await response.json()
             const convertor = convertireJSON.items[0]
             console.log(convertor);
@@ -15,6 +14,7 @@ const request = async() =>{
             const textBox3 = document.querySelector("#text-box3")
             textBox1.textContent = `id: ${convertor.id}`
             textBox2.textContent = `kind: ${convertor.kind}`
+
             textBox3.innerHTML = `
             <strong>language:</strong> ${convertor.volumeInfo.language}<br>
             <strong>title:</strong> ${convertor.volumeInfo.title}<br>
@@ -26,10 +26,12 @@ const request = async() =>{
             `
         }
     } catch (err) {
-        console.error('An error ocurred',err)
+        console.error('An error occurred', err)
     }
 }
+
 request()
+
 const add = () => {
     const mainContainer = document.createElement('div');
     mainContainer.className = 'main-container';
@@ -58,9 +60,10 @@ const add = () => {
 
         secondContainer.appendChild(column);
     }
+
     mainContainer.appendChild(secondContainer);
     return mainContainer;
 }
+
 const container = add();
 document.body.appendChild(container);
-
