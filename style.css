@@ -38,6 +38,7 @@
     justify-content: flex-start;
     height: 100%;
     overflow: hidden;
+    overflow-y: auto;
     text-overflow: ellipsis;
     max-height: 100%;
     white-space: normal;
